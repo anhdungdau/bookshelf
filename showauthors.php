@@ -9,25 +9,13 @@
     <meta charset="utf-8">
     <title>showAuthors</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
     <div>
         <h1>Authors List</h1>
     </div>
-    <button class="open-button" onclick="openForm()">Add author</button>
-    <div class="form-popup" id="myForm">
-      <form method="GET" class="form-container">
-        <input type="text" placeholder="Enter author name here" name="authorname" required>
-        <button type="submit" class="btn">Submit</button>
-        <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-      </form>
-    </div>
-    <?php
-      $author = $_GET['authorname'];
-      $sql = "INSERT INTO authors (authorID, author) VALUES (NULL, '$author')";
-      $result=mysqli_query($con,$sql);
-      echo "Author".$author."has been added!";
-    ?>
+    <button class="w3-button w3-green" onclick="location.href='addauthor.html'" type="button">Add author</button>
     <table id="bookshelf">
         <tr>
             <th>ID</th>
