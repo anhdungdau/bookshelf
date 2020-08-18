@@ -1,6 +1,7 @@
 <?php
+  session_start();
+  include_once 'connection.php';
 
-$con = mysqli_connect("localhost","root","","bookshelf");
 if (isset($_GET['authorID'])) {
 	// called from showauthors.php, get the author details ready to show in the form
 	$authorID = $_GET['authorID'];
@@ -14,21 +15,25 @@ if (isset($_GET['authorID'])) {
 	$authorID = $_POST['authorID'];
 	$sql = "update authors set author = '".$author."' where authorID = ".$authorID;
 	$result=mysqli_query($con,$sql);
-	header('Location: showauthors.php');	
+	header('Location: showauthors.php');
 }
 ?>
 
-<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title>Edit author</title>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	</head>
 	<body>
-		<form method="post" action="editauthor.php">
-			<label for="author">Author name:</label>
-			<input type="text" name="authorname" id="author" value="<?php echo $row['author'] ?>">
-			<input type="hidden" name="authorID" value="<?php echo $authorID ?>">
-		</form>
+	    <h1>Edit Author</h1>
+        <form method="post" action="editauthor.php">
+            <label for="author">Author name:</label>
+            <input type="text" name="authorname" id="author" value="<?php echo $row['author'] ?>">
+            <input type="hidden" name="authorID" value="<?php echo $authorID ?>"><br>
+            <button class="btn-primary btn-sm w3-green" onclick="location.href='showauthors.php'" type="submit">Submit</button>
+            <button class="btn-primary btn-sm w3-red" onclick="location.href='showauthors.php'" type="button">Cancel</button>
+        </form>
 	</body>
 </html>
