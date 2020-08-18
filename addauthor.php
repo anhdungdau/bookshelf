@@ -6,5 +6,5 @@
   $result=mysqli_query($con,$sql);
   echo "Author .$author. has been added successfully!";
   header( "refresh:3;url=showauthors.php" );
-  echo 'You will be redirect to the Authors List shortly';
+  echo 'You will be redirected to the Authors List shortly';
 ?>

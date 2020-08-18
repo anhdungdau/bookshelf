@@ -15,7 +15,7 @@
     <div>
         <h1>Authors List</h1>
     </div>
-    <button class="w3-button w3-green" onclick="location.href='addauthor.html'" type="button">Add author</button>
+    <button class="btn-primary btn-sm w3-green" onclick="location.href='addauthor.html'" type="button">Add author</button>
     <table id="bookshelf">
         <tr>
             <th>ID</th>
@@ -36,22 +36,13 @@
                 <?php echo $row['author'];?>
             </td>
             <td>
-                <?php echo 'Edit';?>
+                <?php echo '<a href="editauthor.php?authorID='.$row['authorID'].'">Edit</a>';?>
             </td>
             <td>
-                <?php echo 'Delete';?>
+                <?php echo '<a href="deleteauthor.php?authorID='.$row['authorID'].'">Delete</a>';?>
             </td>
         </tr>
         <?php } ?>
     </table>
-<script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
 </body>
 </html>
