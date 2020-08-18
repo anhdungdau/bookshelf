@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost","root","","bookshelf");
+  include_once 'connection.php';
 $sql = "select * from authors order by author";
 $result=mysqli_query($con,$sql);
 
@@ -12,38 +12,39 @@ if (isset($_POST['title'])){
     //echo $sql;
 	$result2=mysqli_query($con,$sql);
 	if($result2==1) {
-		echo "added new book: $title<br>";
+		echo "The book .$title. has been added to the bookshelf!";
+         header( "refresh:3;url=showbooks.php" );
+        echo 'You will be redirected to the Books List shortly';
 	}
 }
-
 ?>
-    <!doctype html>
-    <html>
 
-    <head>
-        <meta charset="utf-8">
-        <title>Add a new book</title>
-    </head>
+<html>
 
-    <body>
-        <form method="post" action="addbook.php">
-            Author:
-            <select name="authorID">
-                <?php
-					while($row=mysqli_fetch_array($result)) {
-						echo '<option value="'.$row['authorID'].'">'.$row['author'].'</option>';
-					}
-				?>
-            </select>
-            <br>
-            <label for="title">Title:</label>
-            <input type="text" name="title" id="title">
-            <br>
-            <label for="url">URL:</label>
-            <input type="text" name="url" id="url">
-            <br>
-            <input type="submit">
-        </form>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
 
-    </html>
+<body>
+    <h1>Add Book</h1>
+    <form method="POST" action="addbook.php">
+        Author:
+        <select name="authorID">
+            <?php
+                while($row=mysqli_fetch_array($result)) {
+                    echo '<option value="'.$row['authorID'].'">'.$row['author'].'</option>';
+                }
+            ?>
+        </select><br>
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title"><br>
+        <label for="url">URL:</label>
+        <input type="text" name="url" id="url"><br>
+        <button class="btn-primary btn-sm w3-green" onclick="location.href='showbooks.php'" type="submit">Submit</button>
+        <button class="btn-primary btn-sm w3-red" onclick="location.href='showbooks.php'" type="button">Cancel</button>
+    </form>
+</body>
+
+</html>
