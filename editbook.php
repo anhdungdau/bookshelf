@@ -13,7 +13,7 @@ if (isset($_GET['bookID'])) {
 	// update the record in the database somehow
 	$title = $_POST['title'];
 	$bookID = $_POST['bookID'];
-	$sql = "update books set book = '".$title."' where bookID = ".$bookID;
+	$sql = "update books set title = '".$title."' where bookID = ".$bookID;
 	$result=mysqli_query($con,$sql);
 	header('Location: showbooks.php');
 }
@@ -22,14 +22,14 @@ if (isset($_GET['bookID'])) {
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Edit book</title> 
+		<title>Edit book</title>
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	</head>
 	<body>
 	    <h1>Edit book</h1>
         <form method="post" action="editbook.php">
-            <label for="title">Book name:</label>
+            <label for="title">Title:</label>
             <input type="text" name="title" id="title" value="<?php echo $row['title'] ?>">
             <input type="hidden" name="bookID" value="<?php echo $bookID ?>"><br>
             <button class="btn-primary btn-sm w3-green" onclick="location.href='showbooks.php'" type="submit">Submit</button>
