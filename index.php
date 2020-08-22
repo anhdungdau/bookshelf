@@ -17,12 +17,17 @@
         <h1>Welcome to my Bookshelf</h1>
     </div>
     <div class="w3-row-padding">
-        <div class="w3-half">
-            <h2><a href="showauthors.php">List of Authors</a></h2>
+       <h2>What would you like to know?</h2>
+        <div class="w3-third">
+            <h2><a href="showAll.php">Authors & Books</a></h2>
+            <img src="img/authorsAndBooks.jpg" style="max-width:100%;height:auto;">
+        </div>
+        <div class="w3-third">
+            <h2><a href="showauthors.php">Authors</a></h2>
             <img src="img/author.jpg" style="max-width:100%;height:auto;">
         </div>
-        <div class="w3-half">
-            <h2><a href="showbooks.php">List of Books</a></h2>
+        <div class="w3-third">
+            <h2><a href="showbooks.php">Books</a></h2>
             <img src="img/bookshelf.jpg" style="max-width:100%;height:auto;">
         </div>
     </div>
